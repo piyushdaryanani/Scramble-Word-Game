@@ -1,0 +1,18 @@
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scramble Word Game - Options</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'game/style.css' %}">
+  <!-- Any inline styles if needed -->
+</head>
+<body>
+  <div class="center-container">
+    <h1>Choose an Option</h1>
+    <a href="{% url 'easy_game' %}" class="menu-button">Easy (8 Years Old)</a>
+    <a href="{% url 'medium_game' %}" class="menu-button">Medium (9 Years Old)</a>
+    <a href="{% url 'hard_game' %}" class="menu_button">Hard (10 Years Old)</a>
+    <a href="{% url 'options' %}" class="menu_button back-button">Back</a>
+  </div>
+</body>
+</html>

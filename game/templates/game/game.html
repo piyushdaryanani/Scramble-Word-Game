@@ -1,0 +1,45 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scramble Word Game</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'game/gamestyle.css' %}">
+    <script>
+        let timeLeft = 15;
+        let timer;  // Store the timer reference
+
+        function startTimer() {
+            timer = setInterval(() => {
+                document.getElementById("timer").innerText = `Time left: ${timeLeft} sec`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    document.getElementById("guess-input").value = "";  // Auto submit empty guess
+                    document.getElementById("game-form").submit();  // Submit form automatically
+                }
+                timeLeft--;
+            }, 1000);
+        }
+
+        window.onload = startTimer;  // Start the timer when the page loads
+    </script>
+</head>
+<body>
+    <a id="exit-button" href="{% url 'select_difficulty' %}">Exit</a>
+    <div class="center-container">
+        <h1>Unscramble The Word</h1>
+        <h1 id="scrambled-word">{{ scrambled }}</h1>
+
+        <h3 id="timer">Time left: 15 sec</h3>
+
+        <h3 id="attempts">Attempts left: {{ attempts_left }}</h3>
+
+        <form id="game-form" method="post">
+            {% csrf_token %}
+            <input id="guess-input" type="text" name="guess" placeholder="Your guess" required>
+            <button type="submit">Submit</button>
+            <h3 id="description">Hint: {{ description }}</h3>
+        </form>
+    </div>
+</body>
+</html>

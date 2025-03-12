@@ -1,0 +1,16 @@
+{% load static %}
+<html lang="en">
+<head>
+    <title>Game Result</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'game/gamestyle.css' %}">
+</head>
+<body>
+    <a id="exit-button" href="{% url 'select_difficulty' %}">Exit</a>
+    <div class="center-container">
+    <h1>{{ result }}</h1>
+    <h2>Your answer: {{ user_guess }}</h2>
+    <h2>Correct Word: {{ correct_word }}</h2>
+    <a href="{% url 'medium_game' %}">Next</a>
+    </div>
+</body>
+</html>

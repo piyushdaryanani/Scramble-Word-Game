@@ -1,0 +1,17 @@
+{% load static %}
+<html lang="en">
+<head>
+    <title>Game Over</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'game/gamestyle.css' %}">
+</head>
+<body>
+    <a id="exit-button" href="{% url 'select_difficulty' %}">Exit</a>
+    <div class="center-container">
+        <h1>Game Over!</h1>
+        <h2>Total Attempts: 10</h2>
+        <h2>Correct Answers: {{ correct_count }}</h2>
+        <h2>Wrong Answers: {{ wrong_count }}</h2>
+        <a href="{% url 'restart_medium' %}">Play Again</a>
+    </div>
+</body>
+</html>

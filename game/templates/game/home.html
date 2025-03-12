@@ -1,0 +1,15 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scramble Word Game</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'game/style.css' %}">
+</head>
+<body>
+  <div class="center-container">
+    <h1>Scramble Word Game</h1>
+    <p>Hit the Keys and Solve the Mystery</p>
+    <a href="{% url 'options' %}">Start Game</a>
+  </div>
+</body>
+</html>
